@@ -1,0 +1,7 @@
+a {
+  text-decoration: none;
+}
+
+li + li {
+  padding-left: 3em;
+}
