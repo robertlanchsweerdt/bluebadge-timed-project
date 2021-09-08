@@ -34,8 +34,8 @@ const Nasa = (props) => {
           On this page, we'll grab a satellite image matching your location.
         </p>
         <p>
-          According to our metrics, your latitude is ${props.lat} and your
-          longitude is ${props.long}
+          According to our metrics, your latitude is {props.lat} and your
+          longitude is {props.long}
         </p>
         <Row>
           <Col xs='12'>
