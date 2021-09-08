@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Header from './components/Header/Header';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -7,22 +8,40 @@ import Weather from './components/Weather/Weather';
 import Ticketmaster from './components/Ticketmaster/Ticketmaster';
 
 function App() {
+  const [lat, setLat] = useState(0);
+  const [long, setLong] = useState(0);
+
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setLat(position.coords.latitude);
+        setLong(position.coords.longitude);
+      });
+    } else {
+      console.error('Geo-location has been disabled');
+    }
+  };
+
+  useEffect(() => {
+    getLocation();
+  }, []);
+
   return (
     <div className='App'>
       <Router>
         <Header />
         <Switch>
           <Route exact path='/'>
-            <Home />
+            <Home lat={lat} />
           </Route>
           <Route exact path='/nasa'>
-            <Nasa />
+            <Nasa lat={lat} long={long} />
           </Route>
           <Route exact path='/weather'>
-            <Weather />
+            <Weather lat={lat} long={long} />
           </Route>
           <Route exact path='/ticketmaster'>
-            <Ticketmaster />
+            <Ticketmaster lat={lat} long={long} />
           </Route>
         </Switch>
       </Router>
