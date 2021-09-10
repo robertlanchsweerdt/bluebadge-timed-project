@@ -5,8 +5,8 @@ import { Container, Row, Col } from 'reactstrap';
 // access:  props.lat, props.long
 
 const Nasa = (props) => {
+  const API_KEY = 'ZdcLrRyIRN0UMvybh74Khpkb0fd5bBN35eA4gy59';
   const baseURL = 'https://api.nasa.gov/planetary/earth/imagery';
-  const API_KEY = process.env.REACT_APP_NASA_API_KEY;
   const [nasaImg, setNasaImg] = useState('');
 
   console.log(props.lat);
