@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import DisplayNasa from './DisplayNasa';
 
 // lat and long has been passed to this component
 // access:  props.lat, props.long
@@ -39,7 +40,7 @@ const Nasa = (props) => {
         </p>
         <Row>
           <Col xs='12'>
-            <img src={nasaImg} alt='' className='d-block w-100' />
+            <DisplayNasa nasaImg={nasaImg} />
           </Col>
         </Row>
       </Container>

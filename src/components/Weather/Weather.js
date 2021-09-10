@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Container } from 'reactstrap';
+import DisplayWeather from './DisplayWeather';
 
 // lat and long has been passed to this component
 // access:  props.lat, props.long
@@ -31,22 +32,6 @@ const Weather = (props) => {
     fetchWeather(units);
   };
 
-  const displayWeather = () =>
-    weatherData != false ? (
-      <>
-        <p className='mt-5'>
-          At your location with a latitude of {props.lat} and a longitude of{' '}
-          {props.long} this is your weather information:
-        </p>
-        <ul>
-          <li>Overall: {weatherData.weather[0].description}</li>
-          <li className='p-0'>Temperature: {weatherData.main.temp}°</li>
-          <li className='p-0'>Feels like: {weatherData.main.feels_like}°</li>
-          <li className='p-0'>Humidity: {weatherData.main.humidity}%</li>
-        </ul>
-      </>
-    ) : null;
-
   return (
     <>
       <Container className='py-5'>
@@ -61,7 +46,7 @@ const Weather = (props) => {
           {' '}
           Celsius
         </Button>
-        {displayWeather()}
+        <DisplayWeather weatherData={weatherData} />
       </Container>
     </>
   );

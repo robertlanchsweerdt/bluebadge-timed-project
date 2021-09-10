@@ -32,7 +32,7 @@ function App() {
         <Header />
         <Switch>
           <Route exact path='/'>
-            <Home lat={lat} />
+            <Home />
           </Route>
           <Route exact path='/nasa'>
             <Nasa lat={lat} long={long} />
