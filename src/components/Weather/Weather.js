@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button, Container } from 'reactstrap';
 
 // lat and long has been passed to this component
