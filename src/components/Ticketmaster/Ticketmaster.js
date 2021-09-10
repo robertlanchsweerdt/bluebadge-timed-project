@@ -7,7 +7,7 @@ import Geohash from "latlon-geohash"; //installed geohash package
 
 const Ticketmaster = (props) => {
   const baseURL = "https://app.ticketmaster.com/discovery/v2/events.json";
-  const API_KEY = "Q8EaV8ZZiARVpnO3ZzkAprH7w1WMnI9S";
+  const API_KEY = "u71yAawfhh2gd4O9wypn28g0WhHTQo7B";
   const lat = props.lat;
   const long = props.long;
 
@@ -44,7 +44,9 @@ const Ticketmaster = (props) => {
       });
   };
 
-  fetchEvents();
+  useEffect(() => {
+    fetchEvents();
+  }, [props.lat]);
 
   return (
     <>
@@ -52,7 +54,8 @@ const Ticketmaster = (props) => {
         <h1>Welcome to the Ticketmaster page</h1>
         <p>
           Here we will use your location to show you a few nearby events pulled
-          from Ticketmaster's API.
+          from Ticketmaster's API. You will see the event followed by the venue
+          and the date
         </p>
         <p>
           According to our metrics your latitude is {props.lat} and your
@@ -61,17 +64,17 @@ const Ticketmaster = (props) => {
         <br />
         <Row>
           <Col xs="12">
-            <p>{eventName}</p>
-            <p>{eventVenue}</p>
-            <p>{eventDate}</p>
+            <p>Event: {eventName}</p>
+            <p>Venue: {eventVenue}</p>
+            <p>Date: {eventDate}</p>
             <br />
-            <p>{eventName2}</p>
-            <p>{eventVenue2}</p>
-            <p>{eventDate2}</p>
+            <p>Event: {eventName2}</p>
+            <p>Venue: {eventVenue2}</p>
+            <p>Date: {eventDate2}</p>
             <br />
-            <p>{eventName3}</p>
-            <p>{eventVenue3}</p>
-            <p>{eventDate3}</p>
+            <p>Event:{eventName3}</p>
+            <p>Venue: {eventVenue3}</p>
+            <p>Date: {eventDate3}</p>
           </Col>
         </Row>
       </Container>
